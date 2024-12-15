@@ -1,0 +1,26 @@
+# Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+stories/__pycache__/
+
+# Django specific
+db.sqlite3
+*/migrations/*
+/static/
+/media/
+
+# Virtual environment
+env/
+venv/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Sensitive settings
+*.env

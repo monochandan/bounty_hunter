@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Stories</title>
+    <a href="{% url 'submit_story' %}">
+        <button>Submit a Story</button>
+    </a>
+</head>
+<body>
+    <h1>Recent Stories</h1>
+    <a href="{% url 'submit_story' %}">Submit a Story</a>
+    <hr>
+    {% for story in stories %}
+        <div>
+            <h2>{{ story.title }}</h2>
+            <p>{{ story.description }}</p>
+            <p><strong>Category:</strong> {{ story.category }}</p>
+            <p><strong>Author:</strong> {{ story.author_name }}</p>
+            <p><strong>Posted on:</strong> {{ story.timestamp|date:"F j, Y, g:i a" }}</p>
+            {% if story.media_url %}
+                <p><a href="{{ story.media_url }}" target="_blank">Media Link</a></p>
+            {% endif %}
+        </div>
+        <hr>
+    {% empty %}
+        <p>No stories have been posted yet.</p>
+    {% endfor %}
+</body>
+</html>
